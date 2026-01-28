@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Эстет Клиник — Стоматология в Астрахани</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <a href="#" class="logo">
+                <span class="logo-icon">✦</span>
+                <span class="logo-text">Эстет Клиник</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">О нас</a></li>
+                <li><a href="#services">Услуги</a></li>
+                <li><a href="#features">Преимущества</a></li>
+                <li><a href="#contacts">Контакты</a></li>
+            </ul>
+            <a href="tel:+78512718787" class="nav-phone">8 (8512) 71-87-87</a>
+            <button class="nav-toggle" aria-label="Меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge animate-fade-up">Стоматология нового поколения</span>
+                <h1 class="hero-title animate-fade-up delay-1">
+                    Красивая улыбка<br>
+                    <span class="text-gradient">начинается здесь</span>
+                </h1>
+                <p class="hero-description animate-fade-up delay-2">
+                    Современные технологии, опытные специалисты и индивидуальный подход
+                    к каждому пациенту в клинике Эстет Клиник
+                </p>
+                <div class="hero-buttons animate-fade-up delay-3">
+                    <a href="#contacts" class="btn btn-primary">Записаться на приём</a>
+                    <a href="#services" class="btn btn-secondary">Наши услуги</a>
+                </div>
+                <div class="hero-stats animate-fade-up delay-4">
+                    <div class="stat">
+                        <span class="stat-number" data-count="15">0</span>
+                        <span class="stat-label">лет опыта</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-count="10000">0</span>
+                        <span class="stat-label">довольных пациентов</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" data-count="2">0</span>
+                        <span class="stat-label">клиники в городе</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <span>Листайте вниз</span>
+            <div class="scroll-indicator"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-content">
+                    <span class="section-badge animate-on-scroll">О клинике</span>
+                    <h2 class="section-title animate-on-scroll">
+                        Мы создаём улыбки,<br>которыми гордятся
+                    </h2>
+                    <p class="about-text animate-on-scroll">
+                        Эстет Клиник — это современная стоматологическая клиника в Астрахани,
+                        где эстетика и функциональность являются основными направлениями лечения.
+                        Наши врачи — специалисты высокого класса, которые постоянно повышают
+                        профессиональный уровень.
+                    </p>
+                    <p class="about-text animate-on-scroll">
+                        Мы используем передовые технологии диагностики, включая рентгеновскую
+                        систему ORTHOPHOS XG 3D для получения точных 2D и 3D снимков.
+                    </p>
+                    <div class="about-founder animate-on-scroll">
+                        <div class="founder-avatar">ГР</div>
+                        <div class="founder-info">
+                            <span class="founder-name">Гаджиев Руслан Гаджиевич</span>
+                            <span class="founder-role">Основатель и главный врач</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual animate-on-scroll">
+                    <div class="visual-card">
+                        <div class="visual-icon">🦷</div>
+                        <h3>Комфорт</h3>
+                        <p>Безболезненное лечение с применением современных методов анестезии</p>
+                    </div>
+                    <div class="visual-card">
+                        <div class="visual-icon">✨</div>
+                        <h3>Качество</h3>
+                        <p>Используем только сертифицированные материалы и оборудование</p>
+                    </div>
+                    <div class="visual-card">
+                        <div class="visual-icon">💎</div>
+                        <h3>Эстетика</h3>
+                        <p>Создаём естественные и красивые улыбки</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge animate-on-scroll">Услуги</span>
+                <h2 class="section-title animate-on-scroll">Полный спектр<br>стоматологических услуг</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                    </div>
+                    <h3>Терапия</h3>
+                    <p>Лечение кариеса, пульпита и периодонтита с применением современных материалов</p>
+                    <a href="#contacts" class="service-link">Подробнее →</a>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l4.59-4.58L18 11l-6 6z"/>
+                        </svg>
+                    </div>
+                    <h3>Имплантация</h3>
+                    <p>Восстановление зубов с помощью качественных имплантов ведущих производителей</p>
+                    <a href="#contacts" class="service-link">Подробнее →</a>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3>Ортодонтия</h3>
+                    <p>Исправление прикуса и выравнивание зубов для взрослых и детей</p>
+                    <a href="#contacts" class="service-link">Подробнее →</a>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h3>Протезирование</h3>
+                    <p>Коронки, виниры, мосты и съёмные протезы высочайшего качества</p>
+                    <a href="#contacts" class="service-link">Подробнее →</a>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                    </div>
+                    <h3>Хирургия</h3>
+                    <p>Удаление зубов любой сложности, включая зубы мудрости</p>
+                    <a href="#contacts" class="service-link">Подробнее →</a>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 1v6m0 6v10M1 12h6m6 0h10"/>
+                        </svg>
+                    </div>
+                    <h3>Лазерная стоматология</h3>
+                    <p>Безболезненное и эффективное лечение с использованием лазерных технологий</p>
+                    <a href="#contacts" class="service-link">Подробнее →</a>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 010 16z"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                    </div>
+                    <h3>Лечение во сне</h3>
+                    <p>Седация для комфортного лечения взрослых и детей</p>
+                    <a href="#contacts" class="service-link">Подробнее →</a>
+                </div>
+                <div class="service-card animate-on-scroll">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+                            <path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/>
+                        </svg>
+                    </div>
+                    <h3>Детская стоматология</h3>
+                    <p>Бережное лечение маленьких пациентов в дружелюбной атмосфере</p>
+                    <a href="#contacts" class="service-link">Подробнее →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="features-content">
+                <div class="features-text">
+                    <span class="section-badge animate-on-scroll">Преимущества</span>
+                    <h2 class="section-title animate-on-scroll">Почему выбирают нас</h2>
+                </div>
+                <div class="features-list">
+                    <div class="feature-item animate-on-scroll">
+                        <div class="feature-number">01</div>
+                        <div class="feature-content">
+                            <h3>3D-диагностика</h3>
+                            <p>Система ORTHOPHOS XG 3D для точной диагностики и планирования лечения</p>
+                        </div>
+                    </div>
+                    <div class="feature-item animate-on-scroll">
+                        <div class="feature-number">02</div>
+                        <div class="feature-content">
+                            <h3>Лечение под микроскопом</h3>
+                            <p>Высокоточное лечение корневых каналов с использованием дентального микроскопа</p>
+                        </div>
+                    </div>
+                    <div class="feature-item animate-on-scroll">
+                        <div class="feature-number">03</div>
+                        <div class="feature-content">
+                            <h3>Бесплатная консультация</h3>
+                            <p>Первичный осмотр и составление плана лечения без оплаты</p>
+                        </div>
+                    </div>
+                    <div class="feature-item animate-on-scroll">
+                        <div class="feature-number">04</div>
+                        <div class="feature-content">
+                            <h3>Доступная среда</h3>
+                            <p>Пандус и комфортный доступ для маломобильных пациентов</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content animate-on-scroll">
+                <h2>Запишитесь на бесплатную консультацию</h2>
+                <p>Получите индивидуальный план лечения от наших специалистов</p>
+                <a href="tel:+78512718787" class="btn btn-primary btn-large">
+                    Позвонить сейчас
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacts Section -->
+    <section id="contacts" class="contacts">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-badge animate-on-scroll">Контакты</span>
+                <h2 class="section-title animate-on-scroll">Как нас найти</h2>
+            </div>
+            <div class="contacts-grid">
+                <div class="contact-card animate-on-scroll">
+                    <div class="contact-header">
+                        <span class="contact-badge">Клиника 1</span>
+                    </div>
+                    <div class="contact-body">
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <div>
+                                <strong>Адрес</strong>
+                                <p>г. Астрахань, ул. Набережная Приволжского затона, 22<br>ЖК «Сердце Каспия»</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📞</span>
+                            <div>
+                                <strong>Телефон</strong>
+                                <p><a href="tel:+78512718787">8 (8512) 71-87-87</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">🕐</span>
+                            <div>
+                                <strong>Время работы</strong>
+                                <p>Ежедневно с 09:00 до 20:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-card animate-on-scroll">
+                    <div class="contact-header">
+                        <span class="contact-badge">Клиника 2</span>
+                    </div>
+                    <div class="contact-body">
+                        <div class="contact-item">
+                            <span class="contact-icon">📍</span>
+                            <div>
+                                <strong>Адрес</strong>
+                                <p>г. Астрахань, ул. Бакинская, 4к2</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">📞</span>
+                            <div>
+                                <strong>Телефон</strong>
+                                <p><a href="tel:+78512481448">8 (8512) 48-14-48</a></p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <span class="contact-icon">🕐</span>
+                            <div>
+                                <strong>Время работы</strong>
+                                <p>Ежедневно с 09:00 до 20:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-card contact-card-wide animate-on-scroll">
+                    <div class="contact-body">
+                        <div class="contact-item">
+                            <span class="contact-icon">✉️</span>
+                            <div>
+                                <strong>Email</strong>
+                                <p><a href="mailto:estet-clinic@mail.ru">estet-clinic@mail.ru</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <span class="logo-icon">✦</span>
+                        <span class="logo-text">Эстет Клиник</span>
+                    </a>
+                    <p>Современная стоматология в Астрахани</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#about">О нас</a>
+                    <a href="#services">Услуги</a>
+                    <a href="#features">Преимущества</a>
+                    <a href="#contacts">Контакты</a>
+                </div>
+                <div class="footer-contact">
+                    <a href="tel:+78512718787">8 (8512) 71-87-87</a>
+                    <a href="mailto:estet-clinic@mail.ru">estet-clinic@mail.ru</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Эстет Клиник. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
