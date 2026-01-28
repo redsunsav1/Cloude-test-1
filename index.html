@@ -3,72 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Эстет Клиник — Стоматология в Астрахани</title>
+    <title>Эстет Клиник — Премиальная стоматология в Астрахани</title>
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Swiper for sliders -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <svg viewBox="0 0 100 100">
+                    <circle cx="50" cy="50" r="45" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="280" stroke-dashoffset="280">
+                        <animate attributeName="stroke-dashoffset" from="280" to="0" dur="1.5s" fill="freeze"/>
+                    </circle>
+                </svg>
+                <i data-lucide="sparkles" class="preloader-spark"></i>
+            </div>
+            <span class="preloader-text">Эстет Клиник</span>
+        </div>
+    </div>
+
+    <!-- Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
     <!-- Header -->
     <header class="header">
-        <nav class="nav">
+        <div class="header-inner">
             <a href="#" class="logo">
-                <span class="logo-icon">✦</span>
-                <span class="logo-text">Эстет Клиник</span>
+                <div class="logo-icon">
+                    <i data-lucide="sparkles"></i>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-name">Эстет</span>
+                    <span class="logo-tagline">клиник</span>
+                </div>
             </a>
-            <ul class="nav-links">
-                <li><a href="#about">О нас</a></li>
-                <li><a href="#services">Услуги</a></li>
-                <li><a href="#features">Преимущества</a></li>
-                <li><a href="#contacts">Контакты</a></li>
-            </ul>
-            <a href="tel:+78512718787" class="nav-phone">8 (8512) 71-87-87</a>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#about" class="nav-link">О нас</a></li>
+                    <li><a href="#services" class="nav-link">Услуги</a></li>
+                    <li><a href="#team" class="nav-link">Врачи</a></li>
+                    <li><a href="#gallery" class="nav-link">Галерея</a></li>
+                    <li><a href="#reviews" class="nav-link">Отзывы</a></li>
+                    <li><a href="#contacts" class="nav-link">Контакты</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="tel:+78512718787" class="header-phone">
+                    <i data-lucide="phone"></i>
+                    <span>8 (8512) 71-87-87</span>
+                </a>
+                <button class="btn btn-primary header-btn">
+                    <span>Записаться</span>
+                    <i data-lucide="arrow-right"></i>
+                </button>
+            </div>
+
             <button class="nav-toggle" aria-label="Меню">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-        </nav>
+        </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <div class="mobile-menu-inner">
+            <nav class="mobile-nav">
+                <a href="#about" class="mobile-nav-link">О нас</a>
+                <a href="#services" class="mobile-nav-link">Услуги</a>
+                <a href="#team" class="mobile-nav-link">Врачи</a>
+                <a href="#gallery" class="mobile-nav-link">Галерея</a>
+                <a href="#reviews" class="mobile-nav-link">Отзывы</a>
+                <a href="#contacts" class="mobile-nav-link">Контакты</a>
+            </nav>
+            <div class="mobile-menu-footer">
+                <a href="tel:+78512718787" class="mobile-phone">8 (8512) 71-87-87</a>
+                <p class="mobile-address">г. Астрахань, ул. Набережная Приволжского затона, 22</p>
+            </div>
+        </div>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="hero-bg"></div>
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2068&auto=format&fit=crop" alt="Стоматология" class="hero-bg-img">
+            <div class="hero-overlay"></div>
+        </div>
+
+        <div class="hero-particles" id="particles"></div>
+
         <div class="container">
             <div class="hero-content">
-                <span class="hero-badge animate-fade-up">Стоматология нового поколения</span>
-                <h1 class="hero-title animate-fade-up delay-1">
-                    Красивая улыбка<br>
-                    <span class="text-gradient">начинается здесь</span>
-                </h1>
-                <p class="hero-description animate-fade-up delay-2">
-                    Современные технологии, опытные специалисты и индивидуальный подход
-                    к каждому пациенту в клинике Эстет Клиник
-                </p>
-                <div class="hero-buttons animate-fade-up delay-3">
-                    <a href="#contacts" class="btn btn-primary">Записаться на приём</a>
-                    <a href="#services" class="btn btn-secondary">Наши услуги</a>
+                <div class="hero-badge" data-aos="fade-up">
+                    <i data-lucide="award"></i>
+                    <span>Премиальная стоматология</span>
                 </div>
-                <div class="hero-stats animate-fade-up delay-4">
-                    <div class="stat">
-                        <span class="stat-number" data-count="15">0</span>
-                        <span class="stat-label">лет опыта</span>
+
+                <h1 class="hero-title" data-aos="fade-up" data-aos-delay="100">
+                    Создаём улыбки,
+                    <span class="hero-title-accent">которыми гордятся</span>
+                </h1>
+
+                <p class="hero-description" data-aos="fade-up" data-aos-delay="200">
+                    Современные технологии, опытные специалисты и индивидуальный подход.
+                    Мы делаем посещение стоматолога комфортным и приятным.
+                </p>
+
+                <div class="hero-buttons" data-aos="fade-up" data-aos-delay="300">
+                    <button class="btn btn-primary btn-lg" onclick="openModal()">
+                        <span>Записаться на приём</span>
+                        <i data-lucide="calendar"></i>
+                    </button>
+                    <a href="#about" class="btn btn-outline btn-lg">
+                        <span>Узнать больше</span>
+                        <i data-lucide="chevron-down"></i>
+                    </a>
+                </div>
+
+                <div class="hero-features" data-aos="fade-up" data-aos-delay="400">
+                    <div class="hero-feature">
+                        <i data-lucide="shield-check"></i>
+                        <span>Гарантия качества</span>
                     </div>
-                    <div class="stat">
-                        <span class="stat-number" data-count="10000">0</span>
-                        <span class="stat-label">довольных пациентов</span>
+                    <div class="hero-feature">
+                        <i data-lucide="clock"></i>
+                        <span>Работаем без выходных</span>
                     </div>
-                    <div class="stat">
-                        <span class="stat-number" data-count="2">0</span>
-                        <span class="stat-label">клиники в городе</span>
+                    <div class="hero-feature">
+                        <i data-lucide="credit-card"></i>
+                        <span>Рассрочка 0%</span>
                     </div>
                 </div>
             </div>
+
+            <div class="hero-stats">
+                <div class="hero-stat" data-aos="zoom-in" data-aos-delay="500">
+                    <span class="hero-stat-number" data-count="15">0</span>
+                    <span class="hero-stat-label">лет опыта</span>
+                </div>
+                <div class="hero-stat" data-aos="zoom-in" data-aos-delay="600">
+                    <span class="hero-stat-number" data-count="12000">0</span>
+                    <span class="hero-stat-label">довольных пациентов</span>
+                </div>
+                <div class="hero-stat" data-aos="zoom-in" data-aos-delay="700">
+                    <span class="hero-stat-number" data-count="25">0</span>
+                    <span class="hero-stat-label">специалистов</span>
+                </div>
+            </div>
         </div>
-        <div class="hero-scroll">
-            <span>Листайте вниз</span>
-            <div class="scroll-indicator"></div>
+
+        <a href="#about" class="hero-scroll">
+            <span>Листайте</span>
+            <div class="hero-scroll-icon">
+                <i data-lucide="mouse"></i>
+            </div>
+        </a>
+
+        <div class="hero-decor">
+            <div class="hero-decor-circle"></div>
+            <div class="hero-decor-circle"></div>
+            <div class="hero-decor-circle"></div>
         </div>
     </section>
 
@@ -76,197 +195,511 @@
     <section id="about" class="about">
         <div class="container">
             <div class="about-grid">
-                <div class="about-content">
-                    <span class="section-badge animate-on-scroll">О клинике</span>
-                    <h2 class="section-title animate-on-scroll">
-                        Мы создаём улыбки,<br>которыми гордятся
-                    </h2>
-                    <p class="about-text animate-on-scroll">
-                        Эстет Клиник — это современная стоматологическая клиника в Астрахани,
-                        где эстетика и функциональность являются основными направлениями лечения.
-                        Наши врачи — специалисты высокого класса, которые постоянно повышают
-                        профессиональный уровень.
-                    </p>
-                    <p class="about-text animate-on-scroll">
-                        Мы используем передовые технологии диагностики, включая рентгеновскую
-                        систему ORTHOPHOS XG 3D для получения точных 2D и 3D снимков.
-                    </p>
-                    <div class="about-founder animate-on-scroll">
-                        <div class="founder-avatar">ГР</div>
-                        <div class="founder-info">
-                            <span class="founder-name">Гаджиев Руслан Гаджиевич</span>
-                            <span class="founder-role">Основатель и главный врач</span>
+                <div class="about-images">
+                    <div class="about-img-main" data-aos="fade-right">
+                        <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=2070&auto=format&fit=crop" alt="Современная стоматология">
+                        <div class="about-img-badge">
+                            <i data-lucide="award"></i>
+                            <span>Лучшая клиника 2024</span>
                         </div>
                     </div>
+                    <div class="about-img-secondary" data-aos="fade-up" data-aos-delay="200">
+                        <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?q=80&w=1974&auto=format&fit=crop" alt="Комфортное лечение">
+                    </div>
+                    <div class="about-experience" data-aos="zoom-in" data-aos-delay="300">
+                        <span class="about-experience-number">15+</span>
+                        <span class="about-experience-text">лет безупречной работы</span>
+                    </div>
                 </div>
-                <div class="about-visual animate-on-scroll">
-                    <div class="visual-card">
-                        <div class="visual-icon">🦷</div>
-                        <h3>Комфорт</h3>
-                        <p>Безболезненное лечение с применением современных методов анестезии</p>
+
+                <div class="about-content">
+                    <span class="section-badge" data-aos="fade-up">
+                        <i data-lucide="info"></i>
+                        О клинике
+                    </span>
+
+                    <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
+                        Ваша улыбка — <br>
+                        <span class="text-gradient">наша забота</span>
+                    </h2>
+
+                    <p class="about-text" data-aos="fade-up" data-aos-delay="200">
+                        <strong>Эстет Клиник</strong> — это современная стоматологическая клиника в Астрахани,
+                        где эстетика и функциональность являются основными направлениями лечения.
+                        Мы создали пространство, где забота о вашем здоровье сочетается с комфортом
+                        и индивидуальным подходом.
+                    </p>
+
+                    <p class="about-text" data-aos="fade-up" data-aos-delay="250">
+                        Наши врачи — специалисты высокого класса, которые постоянно повышают
+                        профессиональный уровень, участвуют в международных конференциях и симпозиумах.
+                    </p>
+
+                    <div class="about-features" data-aos="fade-up" data-aos-delay="300">
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <i data-lucide="scan"></i>
+                            </div>
+                            <div class="about-feature-content">
+                                <h4>3D-диагностика</h4>
+                                <p>Система ORTHOPHOS XG 3D для точной диагностики</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <i data-lucide="microscope"></i>
+                            </div>
+                            <div class="about-feature-content">
+                                <h4>Лечение под микроскопом</h4>
+                                <p>Высокоточное лечение корневых каналов</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <i data-lucide="heart-pulse"></i>
+                            </div>
+                            <div class="about-feature-content">
+                                <h4>Лечение во сне</h4>
+                                <p>Седация для комфортного лечения</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">
+                                <i data-lucide="accessibility"></i>
+                            </div>
+                            <div class="about-feature-content">
+                                <h4>Доступная среда</h4>
+                                <p>Комфортный доступ для всех пациентов</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="visual-card">
-                        <div class="visual-icon">✨</div>
-                        <h3>Качество</h3>
-                        <p>Используем только сертифицированные материалы и оборудование</p>
-                    </div>
-                    <div class="visual-card">
-                        <div class="visual-icon">💎</div>
-                        <h3>Эстетика</h3>
-                        <p>Создаём естественные и красивые улыбки</p>
+
+                    <div class="about-cta" data-aos="fade-up" data-aos-delay="400">
+                        <button class="btn btn-primary" onclick="openModal()">
+                            <span>Бесплатная консультация</span>
+                            <i data-lucide="arrow-right"></i>
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
+
+        <div class="about-bg-shape"></div>
     </section>
 
     <!-- Services Section -->
     <section id="services" class="services">
         <div class="container">
-            <div class="section-header">
-                <span class="section-badge animate-on-scroll">Услуги</span>
-                <h2 class="section-title animate-on-scroll">Полный спектр<br>стоматологических услуг</h2>
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">
+                    <i data-lucide="stethoscope"></i>
+                    Услуги
+                </span>
+                <h2 class="section-title">
+                    Полный спектр <br>
+                    <span class="text-gradient">стоматологических услуг</span>
+                </h2>
+                <p class="section-description">
+                    Мы предлагаем комплексное лечение и профилактику заболеваний полости рта
+                    с использованием современных технологий
+                </p>
             </div>
+
             <div class="services-grid">
-                <div class="service-card animate-on-scroll">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                        </svg>
+                <div class="service-card service-card-featured" data-aos="fade-up">
+                    <div class="service-card-image">
+                        <img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?q=80&w=2070&auto=format&fit=crop" alt="Имплантация">
+                        <div class="service-card-overlay"></div>
+                    </div>
+                    <div class="service-card-content">
+                        <div class="service-card-icon">
+                            <i data-lucide="gem"></i>
+                        </div>
+                        <h3>Имплантация</h3>
+                        <p>Восстановление зубов с помощью качественных имплантов ведущих мировых производителей. Пожизненная гарантия.</p>
+                        <ul class="service-card-list">
+                            <li><i data-lucide="check"></i> Nobel Biocare</li>
+                            <li><i data-lucide="check"></i> Straumann</li>
+                            <li><i data-lucide="check"></i> Osstem</li>
+                        </ul>
+                        <a href="#" class="service-card-link" onclick="openModal(); return false;">
+                            <span>Записаться</span>
+                            <i data-lucide="arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-card-icon">
+                        <i data-lucide="smile"></i>
+                    </div>
+                    <h3>Эстетическая стоматология</h3>
+                    <p>Виниры, отбеливание, реставрация — создаём идеальную улыбку вашей мечты</p>
+                    <a href="#" class="service-card-link" onclick="openModal(); return false;">
+                        <span>Подробнее</span>
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-card-icon">
+                        <i data-lucide="shield-plus"></i>
                     </div>
                     <h3>Терапия</h3>
                     <p>Лечение кариеса, пульпита и периодонтита с применением современных материалов</p>
-                    <a href="#contacts" class="service-link">Подробнее →</a>
+                    <a href="#" class="service-card-link" onclick="openModal(); return false;">
+                        <span>Подробнее</span>
+                        <i data-lucide="arrow-right"></i>
+                    </a>
                 </div>
-                <div class="service-card animate-on-scroll">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14l-5-5 1.41-1.41L12 14.17l4.59-4.58L18 11l-6 6z"/>
-                        </svg>
-                    </div>
-                    <h3>Имплантация</h3>
-                    <p>Восстановление зубов с помощью качественных имплантов ведущих производителей</p>
-                    <a href="#contacts" class="service-link">Подробнее →</a>
-                </div>
-                <div class="service-card animate-on-scroll">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 6v6l4 2"/>
-                        </svg>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-card-icon">
+                        <i data-lucide="git-branch"></i>
                     </div>
                     <h3>Ортодонтия</h3>
-                    <p>Исправление прикуса и выравнивание зубов для взрослых и детей</p>
-                    <a href="#contacts" class="service-link">Подробнее →</a>
+                    <p>Брекеты и элайнеры для исправления прикуса у взрослых и детей</p>
+                    <a href="#" class="service-card-link" onclick="openModal(); return false;">
+                        <span>Подробнее</span>
+                        <i data-lucide="arrow-right"></i>
+                    </a>
                 </div>
-                <div class="service-card animate-on-scroll">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                        </svg>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-card-icon">
+                        <i data-lucide="crown"></i>
                     </div>
                     <h3>Протезирование</h3>
-                    <p>Коронки, виниры, мосты и съёмные протезы высочайшего качества</p>
-                    <a href="#contacts" class="service-link">Подробнее →</a>
+                    <p>Коронки, мосты и съёмные протезы высочайшего качества</p>
+                    <a href="#" class="service-card-link" onclick="openModal(); return false;">
+                        <span>Подробнее</span>
+                        <i data-lucide="arrow-right"></i>
+                    </a>
                 </div>
-                <div class="service-card animate-on-scroll">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M20 6L9 17l-5-5"/>
-                        </svg>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-card-icon">
+                        <i data-lucide="scissors"></i>
                     </div>
                     <h3>Хирургия</h3>
-                    <p>Удаление зубов любой сложности, включая зубы мудрости</p>
-                    <a href="#contacts" class="service-link">Подробнее →</a>
+                    <p>Удаление зубов любой сложности, включая ретинированные зубы мудрости</p>
+                    <a href="#" class="service-card-link" onclick="openModal(); return false;">
+                        <span>Подробнее</span>
+                        <i data-lucide="arrow-right"></i>
+                    </a>
                 </div>
-                <div class="service-card animate-on-scroll">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <circle cx="12" cy="12" r="3"/>
-                            <path d="M12 1v6m0 6v10M1 12h6m6 0h10"/>
-                        </svg>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-card-icon">
+                        <i data-lucide="zap"></i>
                     </div>
                     <h3>Лазерная стоматология</h3>
-                    <p>Безболезненное и эффективное лечение с использованием лазерных технологий</p>
-                    <a href="#contacts" class="service-link">Подробнее →</a>
+                    <p>Безболезненное лечение с использованием лазерных технологий</p>
+                    <a href="#" class="service-card-link" onclick="openModal(); return false;">
+                        <span>Подробнее</span>
+                        <i data-lucide="arrow-right"></i>
+                    </a>
                 </div>
-                <div class="service-card animate-on-scroll">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 18a8 8 0 110-16 8 8 0 010 16z"/>
-                            <path d="M12 6v6l4 2"/>
-                        </svg>
-                    </div>
-                    <h3>Лечение во сне</h3>
-                    <p>Седация для комфортного лечения взрослых и детей</p>
-                    <a href="#contacts" class="service-link">Подробнее →</a>
-                </div>
-                <div class="service-card animate-on-scroll">
-                    <div class="service-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
-                            <path d="M8 14s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/>
-                        </svg>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="700">
+                    <div class="service-card-icon">
+                        <i data-lucide="baby"></i>
                     </div>
                     <h3>Детская стоматология</h3>
                     <p>Бережное лечение маленьких пациентов в дружелюбной атмосфере</p>
-                    <a href="#contacts" class="service-link">Подробнее →</a>
+                    <a href="#" class="service-card-link" onclick="openModal(); return false;">
+                        <span>Подробнее</span>
+                        <i data-lucide="arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="services-bg">
+            <div class="services-bg-gradient"></div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="team">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">
+                    <i data-lucide="users"></i>
+                    Наша команда
+                </span>
+                <h2 class="section-title">
+                    Опытные <span class="text-gradient">специалисты</span>
+                </h2>
+                <p class="section-description">
+                    Врачи высшей категории с многолетним опытом работы
+                </p>
+            </div>
+
+            <div class="team-slider swiper" data-aos="fade-up" data-aos-delay="200">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="team-card">
+                            <div class="team-card-image">
+                                <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=1964&auto=format&fit=crop" alt="Гаджиев Руслан Гаджиевич">
+                                <div class="team-card-overlay">
+                                    <div class="team-card-social">
+                                        <a href="#"><i data-lucide="phone"></i></a>
+                                        <a href="#"><i data-lucide="mail"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="team-card-content">
+                                <h3>Гаджиев Руслан Гаджиевич</h3>
+                                <span class="team-card-role">Главный врач, хирург-имплантолог</span>
+                                <p>Основатель клиники. Более 15 лет опыта в имплантологии.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="team-card">
+                            <div class="team-card-image">
+                                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=2070&auto=format&fit=crop" alt="Врач терапевт">
+                                <div class="team-card-overlay">
+                                    <div class="team-card-social">
+                                        <a href="#"><i data-lucide="phone"></i></a>
+                                        <a href="#"><i data-lucide="mail"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="team-card-content">
+                                <h3>Иванова Мария Сергеевна</h3>
+                                <span class="team-card-role">Стоматолог-терапевт</span>
+                                <p>Специалист по эстетической реставрации и лечению под микроскопом.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="team-card">
+                            <div class="team-card-image">
+                                <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80&w=2070&auto=format&fit=crop" alt="Врач ортодонт">
+                                <div class="team-card-overlay">
+                                    <div class="team-card-social">
+                                        <a href="#"><i data-lucide="phone"></i></a>
+                                        <a href="#"><i data-lucide="mail"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="team-card-content">
+                                <h3>Петров Алексей Николаевич</h3>
+                                <span class="team-card-role">Стоматолог-ортодонт</span>
+                                <p>Эксперт по исправлению прикуса. Работает с брекетами и элайнерами.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="team-card">
+                            <div class="team-card-image">
+                                <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80&w=1974&auto=format&fit=crop" alt="Детский стоматолог">
+                                <div class="team-card-overlay">
+                                    <div class="team-card-social">
+                                        <a href="#"><i data-lucide="phone"></i></a>
+                                        <a href="#"><i data-lucide="mail"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="team-card-content">
+                                <h3>Смирнова Елена Викторовна</h3>
+                                <span class="team-card-role">Детский стоматолог</span>
+                                <p>Находит подход к каждому маленькому пациенту. Лечение без слёз.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"><i data-lucide="chevron-left"></i></div>
+                <div class="swiper-button-next"><i data-lucide="chevron-right"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">
+                    <i data-lucide="image"></i>
+                    Галерея
+                </span>
+                <h2 class="section-title">
+                    Наша <span class="text-gradient">клиника</span>
+                </h2>
+                <p class="section-description">
+                    Современное оборудование и комфортные условия для наших пациентов
+                </p>
+            </div>
+
+            <div class="gallery-grid" data-aos="fade-up" data-aos-delay="200">
+                <div class="gallery-item gallery-item-large">
+                    <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?q=80&w=2069&auto=format&fit=crop" alt="Интерьер клиники">
+                    <div class="gallery-item-overlay">
+                        <i data-lucide="maximize-2"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?q=80&w=2070&auto=format&fit=crop" alt="Стоматологический кабинет">
+                    <div class="gallery-item-overlay">
+                        <i data-lucide="maximize-2"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?q=80&w=2070&auto=format&fit=crop" alt="Современное оборудование">
+                    <div class="gallery-item-overlay">
+                        <i data-lucide="maximize-2"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1606811971618-4486d14f3f99?q=80&w=1974&auto=format&fit=crop" alt="Зона ожидания">
+                    <div class="gallery-item-overlay">
+                        <i data-lucide="maximize-2"></i>
+                    </div>
+                </div>
+                <div class="gallery-item gallery-item-wide">
+                    <img src="https://images.unsplash.com/photo-1607613009820-a29f7bb81c04?q=80&w=2080&auto=format&fit=crop" alt="Процесс лечения">
+                    <div class="gallery-item-overlay">
+                        <i data-lucide="maximize-2"></i>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
+    <!-- Reviews Section -->
+    <section id="reviews" class="reviews">
         <div class="container">
-            <div class="features-content">
-                <div class="features-text">
-                    <span class="section-badge animate-on-scroll">Преимущества</span>
-                    <h2 class="section-title animate-on-scroll">Почему выбирают нас</h2>
-                </div>
-                <div class="features-list">
-                    <div class="feature-item animate-on-scroll">
-                        <div class="feature-number">01</div>
-                        <div class="feature-content">
-                            <h3>3D-диагностика</h3>
-                            <p>Система ORTHOPHOS XG 3D для точной диагностики и планирования лечения</p>
-                        </div>
-                    </div>
-                    <div class="feature-item animate-on-scroll">
-                        <div class="feature-number">02</div>
-                        <div class="feature-content">
-                            <h3>Лечение под микроскопом</h3>
-                            <p>Высокоточное лечение корневых каналов с использованием дентального микроскопа</p>
-                        </div>
-                    </div>
-                    <div class="feature-item animate-on-scroll">
-                        <div class="feature-number">03</div>
-                        <div class="feature-content">
-                            <h3>Бесплатная консультация</h3>
-                            <p>Первичный осмотр и составление плана лечения без оплаты</p>
-                        </div>
-                    </div>
-                    <div class="feature-item animate-on-scroll">
-                        <div class="feature-number">04</div>
-                        <div class="feature-content">
-                            <h3>Доступная среда</h3>
-                            <p>Пандус и комфортный доступ для маломобильных пациентов</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="section-header" data-aos="fade-up">
+                <span class="section-badge">
+                    <i data-lucide="message-circle"></i>
+                    Отзывы
+                </span>
+                <h2 class="section-title">
+                    Что говорят <span class="text-gradient">наши пациенты</span>
+                </h2>
             </div>
+
+            <div class="reviews-slider swiper" data-aos="fade-up" data-aos-delay="200">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="review-card">
+                            <div class="review-card-header">
+                                <div class="review-card-avatar">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1974&auto=format&fit=crop" alt="Анна">
+                                </div>
+                                <div class="review-card-info">
+                                    <h4>Анна Михайлова</h4>
+                                    <div class="review-card-rating">
+                                        <i data-lucide="star"></i>
+                                        <i data-lucide="star"></i>
+                                        <i data-lucide="star"></i>
+                                        <i data-lucide="star"></i>
+                                        <i data-lucide="star"></i>
+                                    </div>
+                                </div>
+                                <i data-lucide="quote" class="review-card-quote"></i>
+                            </div>
+                            <p class="review-card-text">
+                                "Замечательная клиника! Делала здесь виниры — результат превзошёл все ожидания.
+                                Врачи очень внимательные, всё объясняют. Теперь улыбаюсь во все 32 зуба!"
+                            </p>
+                            <span class="review-card-date">Декабрь 2024</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="review-card">
+                            <div class="review-card-header">
+                                <div class="review-card-avatar">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop" alt="Дмитрий">
+                                </div>
+                                <div class="review-card-info">
+                                    <h4>Дмитрий Соколов</h4>
+                                    <div class="review-card-rating">
+                                        <i data-lucide="star"></i>
+                                        <i data-lucide="star"></i>
+                                        <i data-lucide="star"></i>
+                                        <i data-lucide="star"></i>
+                                        <i data-lucide="star"></i>
+                                    </div>
+                                </div>
+                                <i data-lucide="quote" class="review-card-quote"></i>
+                            </div>
+                            <p class="review-card-text">
+                                "Установил импланты в Эстет Клиник. Операция прошла быстро и безболезненно.
+                                Руслан Гаджиевич — профессионал своего дела. Рекомендую всем!"
+                            </p>
+                            <span class="review-card-date">Ноябрь 2024</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="review-card">
+                            <div class="review-card-header">
+                                <div class="review-card-avatar">
+                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2070&auto=format&fit=crop" alt="Елена">
+                                </div>
+                                <div class="review-card-info">
+                                    <h4>Елена Козлова</h4>
+                                    <div class="review-card-rating">
+                                        <i data-lucide="star"></i>
+                                        <i data-lucide="star"></i>
+                                        <i data-lucide="star"></i>
+                                        <i data-lucide="star"></i>
+                                        <i data-lucide="star"></i>
+                                    </div>
+                                </div>
+                                <i data-lucide="quote" class="review-card-quote"></i>
+                            </div>
+                            <p class="review-card-text">
+                                "Вожу сюда дочку уже 3 года. Елена Викторовна — волшебница!
+                                Ребёнок идёт к стоматологу с удовольствием. Спасибо за такой подход к детям!"
+                            </p>
+                            <span class="review-card-date">Октябрь 2024</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+        <div class="reviews-bg">
+            <div class="reviews-bg-shape"></div>
         </div>
     </section>
 
     <!-- CTA Section -->
     <section class="cta">
+        <div class="cta-bg">
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2068&auto=format&fit=crop" alt="Стоматология">
+            <div class="cta-overlay"></div>
+        </div>
+
         <div class="container">
-            <div class="cta-content animate-on-scroll">
-                <h2>Запишитесь на бесплатную консультацию</h2>
-                <p>Получите индивидуальный план лечения от наших специалистов</p>
-                <a href="tel:+78512718787" class="btn btn-primary btn-large">
-                    Позвонить сейчас
-                </a>
+            <div class="cta-content" data-aos="zoom-in">
+                <span class="cta-badge">
+                    <i data-lucide="gift"></i>
+                    Специальное предложение
+                </span>
+                <h2 class="cta-title">
+                    Бесплатная консультация <br>
+                    и диагностика
+                </h2>
+                <p class="cta-text">
+                    Запишитесь на первичный приём и получите план лечения
+                    с фиксированной стоимостью
+                </p>
+                <div class="cta-buttons">
+                    <button class="btn btn-white btn-lg" onclick="openModal()">
+                        <span>Записаться сейчас</span>
+                        <i data-lucide="arrow-right"></i>
+                    </button>
+                    <a href="tel:+78512718787" class="cta-phone">
+                        <i data-lucide="phone"></i>
+                        <span>8 (8512) 71-87-87</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -274,74 +707,111 @@
     <!-- Contacts Section -->
     <section id="contacts" class="contacts">
         <div class="container">
-            <div class="section-header">
-                <span class="section-badge animate-on-scroll">Контакты</span>
-                <h2 class="section-title animate-on-scroll">Как нас найти</h2>
-            </div>
             <div class="contacts-grid">
-                <div class="contact-card animate-on-scroll">
-                    <div class="contact-header">
-                        <span class="contact-badge">Клиника 1</span>
+                <div class="contacts-info">
+                    <span class="section-badge" data-aos="fade-up">
+                        <i data-lucide="map-pin"></i>
+                        Контакты
+                    </span>
+                    <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">
+                        Приходите, <br>
+                        <span class="text-gradient">мы вас ждём</span>
+                    </h2>
+
+                    <div class="contacts-cards">
+                        <div class="contact-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="contact-card-header">
+                                <span class="contact-card-badge">Клиника 1</span>
+                                <span class="contact-card-status">
+                                    <span class="status-dot"></span>
+                                    Открыто
+                                </span>
+                            </div>
+                            <div class="contact-card-body">
+                                <div class="contact-card-item">
+                                    <i data-lucide="map-pin"></i>
+                                    <div>
+                                        <strong>Адрес</strong>
+                                        <p>г. Астрахань, ул. Набережная Приволжского затона, 22</p>
+                                        <span class="contact-card-note">ЖК «Сердце Каспия»</span>
+                                    </div>
+                                </div>
+                                <div class="contact-card-item">
+                                    <i data-lucide="phone"></i>
+                                    <div>
+                                        <strong>Телефон</strong>
+                                        <a href="tel:+78512718787">8 (8512) 71-87-87</a>
+                                    </div>
+                                </div>
+                                <div class="contact-card-item">
+                                    <i data-lucide="clock"></i>
+                                    <div>
+                                        <strong>Время работы</strong>
+                                        <p>Ежедневно 09:00 — 20:00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="contact-card-header">
+                                <span class="contact-card-badge">Клиника 2</span>
+                                <span class="contact-card-status">
+                                    <span class="status-dot"></span>
+                                    Открыто
+                                </span>
+                            </div>
+                            <div class="contact-card-body">
+                                <div class="contact-card-item">
+                                    <i data-lucide="map-pin"></i>
+                                    <div>
+                                        <strong>Адрес</strong>
+                                        <p>г. Астрахань, ул. Бакинская, 4к2</p>
+                                    </div>
+                                </div>
+                                <div class="contact-card-item">
+                                    <i data-lucide="phone"></i>
+                                    <div>
+                                        <strong>Телефон</strong>
+                                        <a href="tel:+78512481448">8 (8512) 48-14-48</a>
+                                    </div>
+                                </div>
+                                <div class="contact-card-item">
+                                    <i data-lucide="clock"></i>
+                                    <div>
+                                        <strong>Время работы</strong>
+                                        <p>Ежедневно 09:00 — 20:00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="contact-body">
-                        <div class="contact-item">
-                            <span class="contact-icon">📍</span>
-                            <div>
-                                <strong>Адрес</strong>
-                                <p>г. Астрахань, ул. Набережная Приволжского затона, 22<br>ЖК «Сердце Каспия»</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">📞</span>
-                            <div>
-                                <strong>Телефон</strong>
-                                <p><a href="tel:+78512718787">8 (8512) 71-87-87</a></p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">🕐</span>
-                            <div>
-                                <strong>Время работы</strong>
-                                <p>Ежедневно с 09:00 до 20:00</p>
-                            </div>
-                        </div>
+
+                    <div class="contacts-socials" data-aos="fade-up" data-aos-delay="400">
+                        <a href="mailto:estet-clinic@mail.ru" class="contact-social">
+                            <i data-lucide="mail"></i>
+                            <span>estet-clinic@mail.ru</span>
+                        </a>
                     </div>
                 </div>
-                <div class="contact-card animate-on-scroll">
-                    <div class="contact-header">
-                        <span class="contact-badge">Клиника 2</span>
-                    </div>
-                    <div class="contact-body">
-                        <div class="contact-item">
-                            <span class="contact-icon">📍</span>
-                            <div>
-                                <strong>Адрес</strong>
-                                <p>г. Астрахань, ул. Бакинская, 4к2</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">📞</span>
-                            <div>
-                                <strong>Телефон</strong>
-                                <p><a href="tel:+78512481448">8 (8512) 48-14-48</a></p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <span class="contact-icon">🕐</span>
-                            <div>
-                                <strong>Время работы</strong>
-                                <p>Ежедневно с 09:00 до 20:00</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="contact-card contact-card-wide animate-on-scroll">
-                    <div class="contact-body">
-                        <div class="contact-item">
-                            <span class="contact-icon">✉️</span>
-                            <div>
-                                <strong>Email</strong>
-                                <p><a href="mailto:estet-clinic@mail.ru">estet-clinic@mail.ru</a></p>
+
+                <div class="contacts-map" data-aos="fade-left" data-aos-delay="300">
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2867.5!2d48.0!3d46.35!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDbCsDIxJzAwLjAiTiA0OMKwMDAnMDAuMCJF!5e0!3m2!1sru!2sru!4v1600000000000!5m2!1sru!2sru"
+                            allowfullscreen=""
+                            loading="lazy">
+                        </iframe>
+                        <div class="map-overlay">
+                            <div class="map-card">
+                                <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?q=80&w=2069&auto=format&fit=crop" alt="Эстет Клиник">
+                                <div class="map-card-content">
+                                    <h4>Эстет Клиник</h4>
+                                    <p>ул. Набережная Приволжского затона, 22</p>
+                                    <a href="https://yandex.ru/maps/-/CDxE4G~H" target="_blank" class="btn btn-sm">
+                                        Построить маршрут
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -352,31 +822,160 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <a href="#" class="logo">
-                        <span class="logo-icon">✦</span>
-                        <span class="logo-text">Эстет Клиник</span>
-                    </a>
-                    <p>Современная стоматология в Астрахани</p>
-                </div>
-                <div class="footer-links">
-                    <a href="#about">О нас</a>
-                    <a href="#services">Услуги</a>
-                    <a href="#features">Преимущества</a>
-                    <a href="#contacts">Контакты</a>
-                </div>
-                <div class="footer-contact">
-                    <a href="tel:+78512718787">8 (8512) 71-87-87</a>
-                    <a href="mailto:estet-clinic@mail.ru">estet-clinic@mail.ru</a>
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <a href="#" class="logo">
+                            <div class="logo-icon">
+                                <i data-lucide="sparkles"></i>
+                            </div>
+                            <div class="logo-text">
+                                <span class="logo-name">Эстет</span>
+                                <span class="logo-tagline">клиник</span>
+                            </div>
+                        </a>
+                        <p class="footer-brand-text">
+                            Современная стоматология в Астрахани.
+                            Создаём красивые и здоровые улыбки с 2009 года.
+                        </p>
+                        <div class="footer-socials">
+                            <a href="#" class="footer-social"><i data-lucide="instagram"></i></a>
+                            <a href="#" class="footer-social"><i data-lucide="facebook"></i></a>
+                            <a href="#" class="footer-social"><i data-lucide="youtube"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="footer-nav">
+                        <h4>Навигация</h4>
+                        <ul>
+                            <li><a href="#about">О клинике</a></li>
+                            <li><a href="#services">Услуги</a></li>
+                            <li><a href="#team">Врачи</a></li>
+                            <li><a href="#gallery">Галерея</a></li>
+                            <li><a href="#reviews">Отзывы</a></li>
+                            <li><a href="#contacts">Контакты</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-services">
+                        <h4>Услуги</h4>
+                        <ul>
+                            <li><a href="#">Имплантация</a></li>
+                            <li><a href="#">Протезирование</a></li>
+                            <li><a href="#">Ортодонтия</a></li>
+                            <li><a href="#">Терапия</a></li>
+                            <li><a href="#">Детская стоматология</a></li>
+                            <li><a href="#">Эстетика</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="footer-contact">
+                        <h4>Контакты</h4>
+                        <ul>
+                            <li>
+                                <i data-lucide="phone"></i>
+                                <a href="tel:+78512718787">8 (8512) 71-87-87</a>
+                            </li>
+                            <li>
+                                <i data-lucide="phone"></i>
+                                <a href="tel:+78512481448">8 (8512) 48-14-48</a>
+                            </li>
+                            <li>
+                                <i data-lucide="mail"></i>
+                                <a href="mailto:estet-clinic@mail.ru">estet-clinic@mail.ru</a>
+                            </li>
+                            <li>
+                                <i data-lucide="clock"></i>
+                                <span>Ежедневно 09:00 — 20:00</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Эстет Клиник. Все права защищены.</p>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2024 Эстет Клиник. Все права защищены.</p>
+                    <div class="footer-bottom-links">
+                        <a href="#">Политика конфиденциальности</a>
+                        <a href="#">Пользовательское соглашение</a>
+                    </div>
+                </div>
             </div>
         </div>
     </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-overlay" onclick="closeModal()"></div>
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">
+                <i data-lucide="x"></i>
+            </button>
+            <div class="modal-header">
+                <h3>Записаться на приём</h3>
+                <p>Оставьте заявку и мы свяжемся с вами в течение 15 минут</p>
+            </div>
+            <form class="modal-form" onsubmit="submitForm(event)">
+                <div class="form-group">
+                    <label for="name">Ваше имя</label>
+                    <div class="form-input-wrapper">
+                        <i data-lucide="user"></i>
+                        <input type="text" id="name" name="name" placeholder="Введите имя" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Телефон</label>
+                    <div class="form-input-wrapper">
+                        <i data-lucide="phone"></i>
+                        <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="service">Услуга</label>
+                    <div class="form-input-wrapper">
+                        <i data-lucide="stethoscope"></i>
+                        <select id="service" name="service">
+                            <option value="">Выберите услугу</option>
+                            <option value="consultation">Консультация</option>
+                            <option value="therapy">Терапия</option>
+                            <option value="implantation">Имплантация</option>
+                            <option value="orthodontics">Ортодонтия</option>
+                            <option value="prosthetics">Протезирование</option>
+                            <option value="surgery">Хирургия</option>
+                            <option value="pediatric">Детская стоматология</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">
+                    <span>Записаться</span>
+                    <i data-lucide="send"></i>
+                </button>
+                <p class="form-note">
+                    <i data-lucide="shield-check"></i>
+                    Нажимая кнопку, вы соглашаетесь с политикой конфиденциальности
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Success Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-overlay" onclick="closeSuccessModal()"></div>
+        <div class="modal-content modal-success">
+            <div class="success-icon">
+                <i data-lucide="check-circle"></i>
+            </div>
+            <h3>Заявка отправлена!</h3>
+            <p>Мы свяжемся с вами в ближайшее время для подтверждения записи</p>
+            <button class="btn btn-primary" onclick="closeSuccessModal()">
+                <span>Отлично</span>
+            </button>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
